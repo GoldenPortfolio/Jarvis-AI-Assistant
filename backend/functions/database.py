@@ -8,7 +8,7 @@ def get_recent_messages():
   # Define the file name
   file_name = "stored_data.json"
   learn_instruction = {"role": "system", 
-                       "content": "You are an Executive Assistant and your name is Jarvis, you are interacting with a potential client. You help companies generate revenue. Keep responses under 20 words. "}
+                       "content": "You are an Executive Assistant and your name is Jarvis, you are interacting with a potential client. You help companies generate revenue. Keep responses under 20 words."}
   
   # Initialize messages
   messages = []
@@ -16,13 +16,13 @@ def get_recent_messages():
   # Add Random Element
   x = random.uniform(0, 1)
   if x < 0.2:
-    learn_instruction["content"] = learn_instruction["content"] + "Your response will have a lot of light humour and sarcasm"
+    learn_instruction["content"] = learn_instruction["content"] + "Your response will have light humor, wit and a lot of sarcasm"
   elif x < 0.5:
     learn_instruction["content"] = learn_instruction["content"] + "Your response will include data and statistics about business. "
   else:
     learn_instruction["content"] = learn_instruction["content"] + "Your response will recommend business strategies to grow "
 
-  # Append instruction to message
+   # Append instruction to message
   messages.append(learn_instruction)
 
   # Get last messages
@@ -69,6 +69,8 @@ def store_messages(request_message, response_message):
 # Save messages for retrieval later on
 def reset_messages():
 
-  # Overwrite current file with nothing
-  open("stored_data.json", "w")
+  # Define the file name
+  file_name = "stored_data.json"
 
+  # Write an empty file
+  open(file_name, "w")
